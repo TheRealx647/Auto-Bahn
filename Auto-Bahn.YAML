@@ -1,0 +1,58 @@
+## AUTO-BAN PT1 :: IDENTIFY BASED ON CHECKS - FLAIR USERS FOR FUTURE REMOVAL - NOTIFY MODS OF AUTO-BAHN
+#### Keeps exisitng User flair (if any) and assigns 'nullASB' (null Auto Shadow Bahn) CSS flair class
+## Stolen partially from u/botania and modified for re-use
+    
+    type: any
+    title+body+url+domain (includes): ['8675309'] # Replace with any rule conditons
+    author:
+        set_flair: ['{{author_flair_text}}', 'nullASB'] 
+        overwrite_flair: true
+    action: filter
+    action_reason: "REVIEW! Auto-Shadowbanning: u/{{author}}"
+    modmail_subject: "Auto-Shadowbanned: u/{{author}}"
+    modmail: |
+        ----------
+
+        **[u/{{author}}]** was auto-shadowbanned in **[r/{{subreddit}}]** for **[{{match}}]**
+
+        ----------
+        ----------
+
+        ^({{kind}} title:)
+
+        ----------
+
+        {{title}}
+
+        ----------
+        ----------
+
+        ^(**{{kind}} as plain text:**)
+
+        ----------
+
+        {{body}}
+
+        ----------
+        ----------
+
+        ^(**WARNING: USER SHARED LINKS MAY BE MALICIOUS!**)
+
+        ----------
+
+        ^(**Direct Link: {{permalink}}**)
+
+        ----------
+        
+        User can be properly [**[Banned]**](https://www.reddit.com/r/{{subreddit}}/about/banned/) here.
+        
+--- # -----------------------------------------------------------
+
+## AUTO-BAHN PT2 :: IDENTIFY TAGGED USERS FLAIR CLASS - EXECUTE AUTO-BAHN
+
+author:
+    flair_css_class: 'nullASB'
+action: remove
+action_reason: "u/{{author}} is AM-ShadowBanned"
+
+--- # -----------------------------------------------------------
